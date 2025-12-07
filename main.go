@@ -19,6 +19,8 @@ import (
 	"os"
 )
 
+const VERSION = "0.0.1"
+
 // ------------------ Costanti WGS84 ------------------
 const (
 	WGS84_A  = 6378137.0               // semi-major axis (m)
@@ -278,9 +280,7 @@ func exportCoverageGeoJSON(r Radar, polygon [][]float64, filename string) error 
 	}
 	// Ugly: Go's typing requires conversion
 	coords := make([][]float64, 0)
-	for _, v := range polygon {
-		coords = append(coords, v)
-	}
+	coords = append(coords, polygon...)
 	feat.Geometry.Coordinates = append(feat.Geometry.Coordinates, coords)
 	fc := GeoJSONFeatureCollection{
 		Type:     "FeatureCollection",

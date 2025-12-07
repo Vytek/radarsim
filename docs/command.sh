@@ -1,0 +1,1 @@
+go-callvis -format=png -file=call.png -focus=main -algo=static -include=main.go ./main.go

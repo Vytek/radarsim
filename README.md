@@ -261,3 +261,7 @@ Formati consigliati:
 - ITU-R raccomandazioni per attenuazione da gas, vapor d’acqua e pioggia (es. P.676, P.838, P.452 per path loss).
 - Test e dataset DEM (SRTM) per occultamento da terreno.
 - Documentazione su WGS84 e conversioni ECEF/LLA.
+
+![chrome_At4jJ8i9Fc](./radarsim/docs/chrome_At4jJ8i9Fc.png)
+
+![chrome_8dY8zKIxxg](./radarsim/docs/chrome_8dY8zKIxxg.png)

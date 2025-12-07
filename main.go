@@ -19,7 +19,7 @@ import (
 	"os"
 )
 
-const VERSION = "0.0.1"
+const VERSION = "0.0.2"
 
 // ------------------ Costanti WGS84 ------------------
 const (
@@ -86,7 +86,7 @@ type GeoJSONGeometry struct {
 func deg2rad(d float64) float64 { return d * math.Pi / 180.0 }
 func rad2deg(r float64) float64 { return r * 180.0 / math.Pi }
 
-// LatLonAlt to ECEF (meters)
+// LatLonAlt to ECEF (meters), ECEF = Earth-Centered, Earth-Fixed
 func llhToEcef(latDeg, lonDeg, h float64) (x, y, z float64) {
 	phi := deg2rad(latDeg)
 	lambda := deg2rad(lonDeg)
@@ -97,7 +97,7 @@ func llhToEcef(latDeg, lonDeg, h float64) (x, y, z float64) {
 	return
 }
 
-// ECEF -> vector difference, then rotate to ENU at lat0, lon0
+// ECEF -> vector difference, then rotate to ENU at lat0, lon0; ENU = East, North, Up
 func ecefToEnu(dx, dy, dz, lat0Deg, lon0Deg float64) (e, n, u float64) {
 	phi := deg2rad(lat0Deg)
 	lambda := deg2rad(lon0Deg)
@@ -140,6 +140,94 @@ func destinationPoint(lat1, lon1, bearingDeg, distance float64) (lat2, lon2 floa
 	lambda2 := lambda1 + math.Atan2(math.Sin(theta)*math.Sin(delta)*math.Cos(phi1), math.Cos(delta)-math.Sin(phi1)*math.Sin(phi2))
 	lat2 = rad2deg(phi2)
 	lon2 = rad2deg(lambda2)
+	return
+}
+
+// Vincenty inverse formula: returns distance in meters and initial bearing in degrees
+func vincentyInverse(lat1, lon1, lat2, lon2 float64) (distance, bearing float64) {
+	phi1 := deg2rad(lat1)
+	phi2 := deg2rad(lat2)
+	L := deg2rad(lon2 - lon1)
+	u1 := math.Atan((1 - WGS84_F) * math.Tan(phi1))
+	u2 := math.Atan((1 - WGS84_F) * math.Tan(phi2))
+	sinU1, cosU1 := math.Sin(u1), math.Cos(u1)
+	sinU2, cosU2 := math.Sin(u2), math.Cos(u2)
+
+	lambda := L
+	lambdaP := 2 * math.Pi
+	iterLimit := 100
+	var sinSigma, cosSigma, sigma, sinAlpha, cos2Alpha, cos2SigmaM float64
+
+	for iter := 0; math.Abs(lambda-lambdaP) > 1e-12 && iter < iterLimit; iter++ {
+		sinLambda := math.Sin(lambda)
+		cosLambda := math.Cos(lambda)
+		sinSigma = math.Sqrt(math.Pow(cosU2*sinLambda, 2) + math.Pow(cosU1*sinU2-sinU1*cosU2*cosLambda, 2))
+		if sinSigma == 0 {
+			return 0, 0
+		}
+		cosSigma = sinU1*sinU2 + cosU1*cosU2*cosLambda
+		sigma = math.Atan2(sinSigma, cosSigma)
+		sinAlpha = cosU1 * cosU2 * sinLambda / sinSigma
+		cos2Alpha = 1 - sinAlpha*sinAlpha
+		if cos2Alpha == 0 {
+			cos2SigmaM = 0
+		} else {
+			cos2SigmaM = cosSigma - 2*sinU1*sinU2/cos2Alpha
+		}
+		C := WGS84_F / 16 * cos2Alpha * (4 + WGS84_F*(4-3*cos2Alpha))
+		lambdaP = lambda
+		lambda = L + (1-C)*WGS84_F*sinAlpha*(sigma+C*sinSigma*(cos2SigmaM+C*cosSigma*(-1+2*cos2SigmaM*cos2SigmaM)))
+	}
+
+	a := WGS84_A
+	b := WGS84_A * (1 - WGS84_F)
+	uSq := cos2Alpha * (a*a - b*b) / (b * b)
+	A := 1 + uSq/16384*(4096+uSq*(-768+uSq*(320-175*uSq)))
+	B := uSq / 1024 * (256 + uSq*(-128+uSq*(74-47*uSq)))
+	deltaSigma := B * sinSigma * (cos2SigmaM + B/4*(cosSigma*(-1+2*cos2SigmaM*cos2SigmaM)-B/6*cos2SigmaM*(-3+4*sinSigma*sinSigma)*(-3+4*cos2SigmaM*cos2SigmaM)))
+	distance = b * A * (sigma - deltaSigma)
+
+	y := cosU2 * math.Sin(lambda)
+	x := cosU1*sinU2 - sinU1*cosU2*math.Cos(lambda)
+	initialBearing := math.Mod(rad2deg(math.Atan2(y, x))+360, 360)
+	return distance, initialBearing
+}
+
+// Vincenty direct formula: returns destination lat/lon given start point, bearing (deg) and distance (m)
+func destinationPointVincenty(lat1, lon1, bearingDeg, distance float64) (lat2, lon2 float64) {
+	// Use Vincenty direct solution (simplified for small distances)
+	alpha1 := deg2rad(bearingDeg)
+	s := distance
+	a := WGS84_A
+	f := WGS84_F
+	b := a * (1 - f)
+	phi1 := deg2rad(lat1)
+	lambda1 := deg2rad(lon1)
+	u1 := math.Atan((1 - f) * math.Tan(phi1))
+	sinU1, cosU1 := math.Sin(u1), math.Cos(u1)
+	sinAlpha1, cosAlpha1 := math.Sin(alpha1), math.Cos(alpha1)
+	sigma1 := math.Atan2(math.Tan(u1), cosAlpha1)
+	sinAlpha := cosU1 * sinAlpha1
+	cos2Alpha := 1 - sinAlpha*sinAlpha
+	uSq := cos2Alpha * (a*a - b*b) / (b * b)
+	A := 1 + uSq/16384*(4096+uSq*(-768+uSq*(320-175*uSq)))
+	B := uSq / 1024 * (256 + uSq*(-128+uSq*(74-47*uSq)))
+	sigma := s / (b * A)
+	sigmaP := 2 * math.Pi
+	iterLimit := 100
+	var cos2SigmaM float64
+	for iter := 0; math.Abs(sigma-sigmaP) > 1e-12 && iter < iterLimit; iter++ {
+		cos2SigmaM = math.Cos(2*sigma1 + sigma)
+		deltaSigma := B * math.Sin(sigma) * (cos2SigmaM + B/4*(math.Cos(sigma)*(-1+2*cos2SigmaM*cos2SigmaM)-B/6*cos2SigmaM*(-3+4*math.Sin(sigma)*math.Sin(sigma))*(-3+4*cos2SigmaM*cos2SigmaM)))
+		sigmaP = sigma
+		sigma = s/(b*A) + deltaSigma
+	}
+	phi2 := math.Atan2(sinU1*math.Cos(sigma)+cosU1*math.Sin(sigma)*cosAlpha1, (1-f)*math.Sqrt(sinAlpha*sinAlpha+math.Pow(sinU1*math.Sin(sigma)-cosU1*math.Cos(sigma)*cosAlpha1, 2)))
+	lambda := math.Atan2(math.Sin(sigma)*sinAlpha1, cosU1*math.Cos(sigma)-sinU1*math.Sin(sigma)*cosAlpha1)
+	C := f / 16 * cos2Alpha * (4 + f*(4-3*cos2Alpha))
+	L := lambda - (1-C)*f*sinAlpha*(sigma+C*math.Sin(sigma)*(cos2SigmaM+C*math.Cos(sigma)*(-1+2*cos2SigmaM*cos2SigmaM)))
+	lon2 = rad2deg(lambda1 + L)
+	lat2 = rad2deg(phi2)
 	return
 }
 

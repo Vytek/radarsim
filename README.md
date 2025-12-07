@@ -264,4 +264,9 @@ Formati consigliati:
 
 ![chrome_At4jJ8i9Fc](./docs/chrome_At4jJ8i9Fc.png)
 
-![chrome_8dY8zKIxxg](./docs/chrome_8dY8zKIxxg.png)
+![chrome_8dY8zKIxxg](./docs/chrome_8dY8zKIxxg.png) 
+
+## Riferimenti motori LLM
+
+Migliore: https://claude.ai/chat/40ebf1ba-c4e5-402f-a221-7865bbc5598d
+Medio, ma sul codice attuale: 

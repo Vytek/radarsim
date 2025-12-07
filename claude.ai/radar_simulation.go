@@ -230,6 +230,18 @@ func hasLineOfSight(radar, target GeoCoord) bool {
 	return hDist <= maxLOSDistance
 }
 
+// Verifica Line of Sight considerando curvatura terrestre con formula di Vincenty
+func hasLineOfSightVincenty(radar, target GeoCoord) bool {
+	horizonRadar := radarHorizon(radar.Elevation)
+	horizonTarget := radarHorizon(target.Elevation)
+
+	hDist := vincentyDistance(radar, target)
+	// Distanza massima LOS è la somma dei due orizzonti
+	maxLOSDistance := horizonRadar + horizonTarget
+
+	return hDist <= maxLOSDistance
+}
+
 // ========== ATTENUAZIONE ATMOSFERICA ==========
 
 // Calcola densità vapor d'acqua (g/m³)

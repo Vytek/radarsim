@@ -1,0 +1,138 @@
+digraph gocallvis {
+    label="";
+    labeljust="l";
+    fontname="Arial";
+    fontsize="14";
+    rankdir="LR";
+    bgcolor="lightgray";
+    style="solid";
+    penwidth="0.5";
+    pad="0.0";
+    nodesep="0.35";
+
+    node [shape="box" style="filled,rounded" fillcolor="honeydew" fontname="Verdana" penwidth="1.0" margin="0.16,0.0"];
+    edge [minlen="2"]
+
+    subgraph "cluster_focus" {
+        label="main";
+labelloc="t";
+labeljust="c";
+fontsize="18";
+bgcolor="#e6ecfa";
+        
+        "command-line-arguments.radarEquation" [ fillcolor="lightblue" label="radarEquation" penwidth="0.5" tooltip="command-line-arguments.radarEquation | defined in radar_simulation.go:195\nat radar_simulation.go:200: calling [math.Pow]\nat radar_simulation.go:204: calling [math.Pow]\nat radar_simulation.go:204: calling [math.Pow]\nat radar_simulation.go:209: calling [math.Pow]" ]
+        "command-line-arguments.radarHorizon" [ penwidth="0.5" tooltip="command-line-arguments.radarHorizon | defined in radar_simulation.go:136\nat radar_simulation.go:137: calling [math.Sqrt]" fillcolor="lightblue" label="radarHorizon" ]
+        "command-line-arguments.geoToPoint2D" [ label="geoToPoint2D" penwidth="0.5" tooltip="command-line-arguments.geoToPoint2D | defined in radar_simulation.go:275\nat radar_simulation.go:281: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:281: calling [math.Cos]" fillcolor="lightblue" ]
+        "command-line-arguments.deg2rad" [ tooltip="command-line-arguments.deg2rad | defined in radar_simulation.go:68" fillcolor="lightblue" label="deg2rad" penwidth="0.5" ]
+        "command-line-arguments.generateTacticalMap" [ fillcolor="lightblue" label="generateTacticalMap" penwidth="0.5" tooltip="command-line-arguments.generateTacticalMap | defined in radar_simulation.go:290\nat radar_simulation.go:305: calling [command-line-arguments.geoToPoint2D]\nat radar_simulation.go:316: calling [command-line-arguments.geoToPoint2D]\nat radar_simulation.go:328: calling [(*strings.Builder).WriteString]\nat radar_simulation.go:329: calling [(*strings.Builder).WriteString]\nat radar_simulation.go:332: calling [(*strings.Builder).String]" ]
+        "command-line-arguments.hasLineOfSight" [ fillcolor="lightblue" label="hasLineOfSight" penwidth="0.5" tooltip="command-line-arguments.hasLineOfSight | defined in radar_simulation.go:141\nat radar_simulation.go:142: calling [command-line-arguments.radarHorizon]\nat radar_simulation.go:143: calling [command-line-arguments.radarHorizon]\nat radar_simulation.go:145: calling [command-line-arguments.haversineDistance]" ]
+        "command-line-arguments.haversineDistance" [ penwidth="0.5" tooltip="command-line-arguments.haversineDistance | defined in radar_simulation.go:78\nat radar_simulation.go:89: calling [math.Atan2]\nat radar_simulation.go:79: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:79: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:80: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:80: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:86: calling [math.Cos]\nat radar_simulation.go:86: calling [math.Cos]\nat radar_simulation.go:89: calling [math.Sqrt]\nat radar_simulation.go:89: calling [math.Sqrt]\nat radar_simulation.go:85: calling [math.Sin]\nat radar_simulation.go:85: calling [math.Sin]\nat radar_simulation.go:87: calling [math.Sin]\nat radar_simulation.go:87: calling [math.Sin]" fillcolor="lightblue" label="haversineDistance" ]
+        "command-line-arguments.calculateElevation" [ label="calculateElevation" penwidth="0.5" tooltip="command-line-arguments.calculateElevation | defined in radar_simulation.go:117\nat radar_simulation.go:130: calling [command-line-arguments.rad2deg]\nat radar_simulation.go:118: calling [command-line-arguments.haversineDistance]\nat radar_simulation.go:130: calling [math.Atan2]" fillcolor="lightblue" ]
+        "command-line-arguments.rad2deg" [ penwidth="0.5" tooltip="command-line-arguments.rad2deg | defined in radar_simulation.go:73" fillcolor="lightblue" label="rad2deg" ]
+        "command-line-arguments.main" [ fillcolor="lightblue" label="main" penwidth="0.5" tooltip="command-line-arguments.main | defined in radar_simulation.go:337\nat radar_simulation.go:447: calling [command-line-arguments.generateTacticalMap]\nat radar_simulation.go:453: calling [command-line-arguments.haversineDistance]\nat radar_simulation.go:408: calling [fmt.Printf]\nat radar_simulation.go:409: calling [fmt.Printf]\nat radar_simulation.go:410: calling [fmt.Printf]\nat radar_simulation.go:414: calling [fmt.Printf]\nat radar_simulation.go:416: calling [fmt.Printf]\nat radar_simulation.go:417: calling [fmt.Printf]\nat radar_simulation.go:418: calling [fmt.Printf]\nat radar_simulation.go:423: calling [fmt.Printf]\nat radar_simulation.go:424: calling [fmt.Printf]\nat radar_simulation.go:426: calling [fmt.Printf]\nat radar_simulation.go:427: calling [fmt.Printf]\nat radar_simulation.go:428: calling [fmt.Printf]\nat radar_simulation.go:429: calling [fmt.Printf]\nat radar_simulation.go:430: calling [fmt.Printf]\nat radar_simulation.go:431: calling [fmt.Printf]\nat radar_simulation.go:432: calling [fmt.Printf]\nat radar_simulation.go:434: calling [fmt.Printf]\nat radar_simulation.go:435: calling [fmt.Printf]\nat radar_simulation.go:454: calling [fmt.Printf]\nat radar_simulation.go:338: calling [fmt.Println]\nat radar_simulation.go:407: calling [fmt.Println]\nat radar_simulation.go:446: calling [fmt.Println]\nat radar_simulation.go:447: calling [fmt.Println]\nat radar_simulation.go:450: calling [fmt.Println]\nat radar_simulation.go:418: calling [command-line-arguments.radarHorizon]\nat radar_simulation.go:421: calling [command-line-arguments.simulateDetection]\nat radar_simulation.go:433: calling [math.Log10]" ]
+        "command-line-arguments.distance3D" [ fillcolor="lightblue" label="distance3D" penwidth="0.5" tooltip="command-line-arguments.distance3D | defined in radar_simulation.go:95\nat radar_simulation.go:98: calling [math.Sqrt]\nat radar_simulation.go:96: calling [command-line-arguments.haversineDistance]" ]
+        "command-line-arguments.simulateDetection" [ penwidth="0.5" tooltip="command-line-arguments.simulateDetection | defined in radar_simulation.go:226\nat radar_simulation.go:258: calling [command-line-arguments.calculateSNR]\nat radar_simulation.go:233: calling [command-line-arguments.distance3D]\nat radar_simulation.go:234: calling [command-line-arguments.calculateAzimuth]\nat radar_simulation.go:255: calling [command-line-arguments.radarEquation]\nat radar_simulation.go:235: calling [command-line-arguments.calculateElevation]\nat radar_simulation.go:238: calling [command-line-arguments.hasLineOfSight]\nat radar_simulation.go:252: calling [command-line-arguments.atmosphericAttenuation]" fillcolor="lightblue" label="simulateDetection" ]
+        "command-line-arguments.calculateAzimuth" [ fillcolor="lightblue" label="calculateAzimuth" penwidth="0.5" tooltip="command-line-arguments.calculateAzimuth | defined in radar_simulation.go:102\nat radar_simulation.go:108: calling [math.Sin]\nat radar_simulation.go:109: calling [math.Sin]\nat radar_simulation.go:110: calling [math.Sin]\nat radar_simulation.go:108: calling [math.Cos]\nat radar_simulation.go:109: calling [math.Cos]\nat radar_simulation.go:110: calling [math.Cos]\nat radar_simulation.go:110: calling [math.Cos]\nat radar_simulation.go:103: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:103: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:104: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:104: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:113: calling [command-line-arguments.rad2deg]\nat radar_simulation.go:113: calling [math.Mod]\nat radar_simulation.go:112: calling [math.Atan2]" ]
+        "command-line-arguments.waterVaporDensity" [ fillcolor="lightblue" label="waterVaporDensity" penwidth="0.5" tooltip="command-line-arguments.waterVaporDensity | defined in radar_simulation.go:156\nat radar_simulation.go:158: calling [math.Exp]" ]
+        "command-line-arguments.atmosphericAttenuation" [ fillcolor="lightblue" label="atmosphericAttenuation" penwidth="0.5" tooltip="command-line-arguments.atmosphericAttenuation | defined in radar_simulation.go:168\nat radar_simulation.go:174: calling [command-line-arguments.waterVaporDensity]" ]
+        "command-line-arguments.calculateSNR" [ fillcolor="lightblue" label="calculateSNR" penwidth="0.5" tooltip="command-line-arguments.calculateSNR | defined in radar_simulation.go:216\nat radar_simulation.go:220: calling [math.Log10]" ]
+        
+        subgraph "cluster_fmt" {
+        penwidth="0.8";
+rank="sink";
+label="fmt";
+fontsize="16";
+style="filled";
+fillcolor="#E0FFE1";
+fontname="Tahoma bold";
+URL="/?f=fmt";
+tooltip="package: fmt";
+        
+        "fmt.Println" [ fillcolor="#adedad" label="Println" penwidth="1.5" tooltip="fmt.Println | defined in print.go:313" ]
+        "fmt.Printf" [ fillcolor="#adedad" label="Printf" penwidth="1.5" tooltip="fmt.Printf | defined in print.go:232" ]
+        
+    }
+
+        subgraph "cluster_math" {
+        label="math";
+tooltip="package: math";
+penwidth="0.8";
+style="filled";
+fillcolor="#E0FFE1";
+fontname="Tahoma bold";
+rank="sink";
+URL="/?f=math";
+fontsize="16";
+        
+        "math.Pow" [ fillcolor="#adedad" label="Pow" penwidth="1.5" tooltip="math.Pow | defined in pow.go:48" ]
+        "math.Sqrt" [ fillcolor="#adedad" label="Sqrt" penwidth="1.5" tooltip="math.Sqrt | defined in sqrt.go:93" ]
+        "math.Cos" [ fillcolor="#adedad" label="Cos" penwidth="1.5" tooltip="math.Cos | defined in sin.go:118" ]
+        "math.Sin" [ fillcolor="#adedad" label="Sin" penwidth="1.5" tooltip="math.Sin | defined in sin.go:185" ]
+        "math.Atan2" [ fillcolor="#adedad" label="Atan2" penwidth="1.5" tooltip="math.Atan2 | defined in atan2.go:30" ]
+        "math.Mod" [ fillcolor="#adedad" label="Mod" penwidth="1.5" tooltip="math.Mod | defined in mod.go:22" ]
+        "math.Exp" [ penwidth="1.5" tooltip="math.Exp | defined in exp.go:16" fillcolor="#adedad" label="Exp" ]
+        "math.Log10" [ fillcolor="#adedad" label="Log10" penwidth="1.5" tooltip="math.Log10 | defined in log10.go:9" ]
+        
+    }
+
+        subgraph "cluster_strings" {
+        penwidth="0.8";
+fillcolor="#E0FFE1";
+fontname="Tahoma bold";
+rank="sink";
+URL="/?f=strings";
+tooltip="package: strings";
+fontsize="16";
+style="filled";
+label="strings";
+        
+        "(*strings.Builder).WriteString" [ fillcolor="#adedad" label="(*Builder).WriteString" penwidth="1.5" tooltip="(*strings.Builder).WriteString | defined in builder.go:112" ]
+        "(*strings.Builder).String" [ label="(*Builder).String" penwidth="1.5" tooltip="(*strings.Builder).String | defined in builder.go:46" fillcolor="#adedad" ]
+        
+    }
+
+    }
+
+    "command-line-arguments.geoToPoint2D" -> "command-line-arguments.deg2rad" [ tooltip="at radar_simulation.go:281: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.generateTacticalMap" -> "command-line-arguments.geoToPoint2D" [ tooltip="at radar_simulation.go:305: calling [command-line-arguments.geoToPoint2D]\nat radar_simulation.go:316: calling [command-line-arguments.geoToPoint2D]" ]
+    "command-line-arguments.haversineDistance" -> "math.Atan2" [ color="saddlebrown" tooltip="at radar_simulation.go:89: calling [math.Atan2]" ]
+    "command-line-arguments.waterVaporDensity" -> "math.Exp" [ color="saddlebrown" tooltip="at radar_simulation.go:158: calling [math.Exp]" ]
+    "command-line-arguments.calculateAzimuth" -> "math.Sin" [ color="saddlebrown" tooltip="at radar_simulation.go:108: calling [math.Sin]\nat radar_simulation.go:109: calling [math.Sin]\nat radar_simulation.go:110: calling [math.Sin]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.calculateSNR" [ tooltip="at radar_simulation.go:258: calling [command-line-arguments.calculateSNR]" ]
+    "command-line-arguments.calculateAzimuth" -> "math.Cos" [ color="saddlebrown" tooltip="at radar_simulation.go:108: calling [math.Cos]\nat radar_simulation.go:109: calling [math.Cos]\nat radar_simulation.go:110: calling [math.Cos]\nat radar_simulation.go:110: calling [math.Cos]" ]
+    "command-line-arguments.hasLineOfSight" -> "command-line-arguments.radarHorizon" [ tooltip="at radar_simulation.go:142: calling [command-line-arguments.radarHorizon]\nat radar_simulation.go:143: calling [command-line-arguments.radarHorizon]" ]
+    "command-line-arguments.calculateElevation" -> "command-line-arguments.rad2deg" [ tooltip="at radar_simulation.go:130: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.main" -> "command-line-arguments.generateTacticalMap" [ tooltip="at radar_simulation.go:447: calling [command-line-arguments.generateTacticalMap]" ]
+    "command-line-arguments.distance3D" -> "math.Sqrt" [ color="saddlebrown" tooltip="at radar_simulation.go:98: calling [math.Sqrt]" ]
+    "command-line-arguments.main" -> "command-line-arguments.haversineDistance" [ tooltip="at radar_simulation.go:453: calling [command-line-arguments.haversineDistance]" ]
+    "command-line-arguments.radarHorizon" -> "math.Sqrt" [ tooltip="at radar_simulation.go:137: calling [math.Sqrt]" color="saddlebrown" ]
+    "command-line-arguments.generateTacticalMap" -> "(*strings.Builder).WriteString" [ color="saddlebrown" tooltip="at radar_simulation.go:328: calling [(*strings.Builder).WriteString]\nat radar_simulation.go:329: calling [(*strings.Builder).WriteString]" ]
+    "command-line-arguments.generateTacticalMap" -> "(*strings.Builder).String" [ color="saddlebrown" tooltip="at radar_simulation.go:332: calling [(*strings.Builder).String]" ]
+    "command-line-arguments.haversineDistance" -> "command-line-arguments.deg2rad" [ tooltip="at radar_simulation.go:79: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:79: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:80: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:80: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.haversineDistance" -> "math.Cos" [ color="saddlebrown" tooltip="at radar_simulation.go:86: calling [math.Cos]\nat radar_simulation.go:86: calling [math.Cos]" ]
+    "command-line-arguments.haversineDistance" -> "math.Sqrt" [ color="saddlebrown" tooltip="at radar_simulation.go:89: calling [math.Sqrt]\nat radar_simulation.go:89: calling [math.Sqrt]" ]
+    "command-line-arguments.calculateElevation" -> "command-line-arguments.haversineDistance" [ tooltip="at radar_simulation.go:118: calling [command-line-arguments.haversineDistance]" ]
+    "command-line-arguments.main" -> "fmt.Printf" [ color="saddlebrown" tooltip="at radar_simulation.go:408: calling [fmt.Printf]\nat radar_simulation.go:409: calling [fmt.Printf]\nat radar_simulation.go:410: calling [fmt.Printf]\nat radar_simulation.go:414: calling [fmt.Printf]\nat radar_simulation.go:416: calling [fmt.Printf]\nat radar_simulation.go:417: calling [fmt.Printf]\nat radar_simulation.go:418: calling [fmt.Printf]\nat radar_simulation.go:423: calling [fmt.Printf]\nat radar_simulation.go:424: calling [fmt.Printf]\nat radar_simulation.go:426: calling [fmt.Printf]\nat radar_simulation.go:427: calling [fmt.Printf]\nat radar_simulation.go:428: calling [fmt.Printf]\nat radar_simulation.go:429: calling [fmt.Printf]\nat radar_simulation.go:430: calling [fmt.Printf]\nat radar_simulation.go:431: calling [fmt.Printf]\nat radar_simulation.go:432: calling [fmt.Printf]\nat radar_simulation.go:434: calling [fmt.Printf]\nat radar_simulation.go:435: calling [fmt.Printf]\nat radar_simulation.go:454: calling [fmt.Printf]" ]
+    "command-line-arguments.main" -> "fmt.Println" [ color="saddlebrown" tooltip="at radar_simulation.go:338: calling [fmt.Println]\nat radar_simulation.go:407: calling [fmt.Println]\nat radar_simulation.go:446: calling [fmt.Println]\nat radar_simulation.go:447: calling [fmt.Println]\nat radar_simulation.go:450: calling [fmt.Println]" ]
+    "command-line-arguments.main" -> "command-line-arguments.radarHorizon" [ tooltip="at radar_simulation.go:418: calling [command-line-arguments.radarHorizon]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.distance3D" [ tooltip="at radar_simulation.go:233: calling [command-line-arguments.distance3D]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.calculateAzimuth" [ tooltip="at radar_simulation.go:234: calling [command-line-arguments.calculateAzimuth]" ]
+    "command-line-arguments.atmosphericAttenuation" -> "command-line-arguments.waterVaporDensity" [ tooltip="at radar_simulation.go:174: calling [command-line-arguments.waterVaporDensity]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.radarEquation" [ tooltip="at radar_simulation.go:255: calling [command-line-arguments.radarEquation]" ]
+    "command-line-arguments.calculateSNR" -> "math.Log10" [ tooltip="at radar_simulation.go:220: calling [math.Log10]" color="saddlebrown" ]
+    "command-line-arguments.main" -> "command-line-arguments.simulateDetection" [ tooltip="at radar_simulation.go:421: calling [command-line-arguments.simulateDetection]" ]
+    "command-line-arguments.calculateElevation" -> "math.Atan2" [ color="saddlebrown" tooltip="at radar_simulation.go:130: calling [math.Atan2]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.calculateElevation" [ tooltip="at radar_simulation.go:235: calling [command-line-arguments.calculateElevation]" ]
+    "command-line-arguments.main" -> "math.Log10" [ color="saddlebrown" tooltip="at radar_simulation.go:433: calling [math.Log10]" ]
+    "command-line-arguments.geoToPoint2D" -> "math.Cos" [ color="saddlebrown" tooltip="at radar_simulation.go:281: calling [math.Cos]" ]
+    "command-line-arguments.haversineDistance" -> "math.Sin" [ color="saddlebrown" tooltip="at radar_simulation.go:85: calling [math.Sin]\nat radar_simulation.go:85: calling [math.Sin]\nat radar_simulation.go:87: calling [math.Sin]\nat radar_simulation.go:87: calling [math.Sin]" ]
+    "command-line-arguments.distance3D" -> "command-line-arguments.haversineDistance" [ tooltip="at radar_simulation.go:96: calling [command-line-arguments.haversineDistance]" ]
+    "command-line-arguments.calculateAzimuth" -> "command-line-arguments.deg2rad" [ tooltip="at radar_simulation.go:103: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:103: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:104: calling [command-line-arguments.deg2rad]\nat radar_simulation.go:104: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.calculateAzimuth" -> "command-line-arguments.rad2deg" [ tooltip="at radar_simulation.go:113: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.hasLineOfSight" [ tooltip="at radar_simulation.go:238: calling [command-line-arguments.hasLineOfSight]" ]
+    "command-line-arguments.hasLineOfSight" -> "command-line-arguments.haversineDistance" [ tooltip="at radar_simulation.go:145: calling [command-line-arguments.haversineDistance]" ]
+    "command-line-arguments.calculateAzimuth" -> "math.Mod" [ color="saddlebrown" tooltip="at radar_simulation.go:113: calling [math.Mod]" ]
+    "command-line-arguments.simulateDetection" -> "command-line-arguments.atmosphericAttenuation" [ tooltip="at radar_simulation.go:252: calling [command-line-arguments.atmosphericAttenuation]" ]
+    "command-line-arguments.calculateAzimuth" -> "math.Atan2" [ color="saddlebrown" tooltip="at radar_simulation.go:112: calling [math.Atan2]" ]
+    "command-line-arguments.radarEquation" -> "math.Pow" [ color="saddlebrown" tooltip="at radar_simulation.go:200: calling [math.Pow]\nat radar_simulation.go:204: calling [math.Pow]\nat radar_simulation.go:204: calling [math.Pow]\nat radar_simulation.go:209: calling [math.Pow]" ]
+}

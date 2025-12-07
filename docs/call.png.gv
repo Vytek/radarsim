@@ -1,0 +1,184 @@
+digraph gocallvis {
+    label="";
+    labeljust="l";
+    fontname="Arial";
+    fontsize="14";
+    rankdir="LR";
+    bgcolor="lightgray";
+    style="solid";
+    penwidth="0.5";
+    pad="0.0";
+    nodesep="0.35";
+
+    node [shape="box" style="filled,rounded" fillcolor="honeydew" fontname="Verdana" penwidth="1.0" margin="0.16,0.0"];
+    edge [minlen="2"]
+
+    subgraph "cluster_focus" {
+        fontsize="18";
+bgcolor="#e6ecfa";
+label="main";
+labelloc="t";
+labeljust="c";
+        
+        "command-line-arguments.simpleAtmosphericAttenuationDBPerKm" [ label="simpleAtmosphericAttenuationDBPerKm" penwidth="0.5" tooltip="command-line-arguments.simpleAtmosphericAttenuationDBPerKm | defined in main.go:271\nat main.go:277: calling [math.Min]\nat main.go:275: calling [math.Pow]\nat main.go:277: calling [math.Max]" fillcolor="lightblue" ]
+        "command-line-arguments.llhToEcef" [ tooltip="command-line-arguments.llhToEcef | defined in main.go:90\nat main.go:93: calling [math.Sqrt]\nat main.go:93: calling [math.Sin]\nat main.go:93: calling [math.Sin]\nat main.go:95: calling [math.Sin]\nat main.go:96: calling [math.Sin]\nat main.go:91: calling [command-line-arguments.deg2rad]\nat main.go:92: calling [command-line-arguments.deg2rad]\nat main.go:94: calling [math.Cos]\nat main.go:94: calling [math.Cos]\nat main.go:95: calling [math.Cos]" fillcolor="lightblue" label="llhToEcef" penwidth="0.5" ]
+        "command-line-arguments.deg2rad" [ fillcolor="lightblue" label="deg2rad" penwidth="0.5" tooltip="command-line-arguments.deg2rad | defined in main.go:86" ]
+        "command-line-arguments.destinationPoint" [ fillcolor="lightblue" label="destinationPoint" penwidth="0.5" tooltip="command-line-arguments.destinationPoint | defined in main.go:134\nat main.go:135: calling [command-line-arguments.deg2rad]\nat main.go:136: calling [command-line-arguments.deg2rad]\nat main.go:137: calling [command-line-arguments.deg2rad]\nat main.go:141: calling [command-line-arguments.rad2deg]\nat main.go:142: calling [command-line-arguments.rad2deg]\nat main.go:139: calling [math.Sin]\nat main.go:139: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:139: calling [math.Cos]\nat main.go:139: calling [math.Cos]\nat main.go:139: calling [math.Cos]\nat main.go:140: calling [math.Cos]\nat main.go:140: calling [math.Cos]\nat main.go:139: calling [math.Asin]\nat main.go:140: calling [math.Atan2]" ]
+        "command-line-arguments.rad2deg" [ fillcolor="lightblue" label="rad2deg" penwidth="0.5" tooltip="command-line-arguments.rad2deg | defined in main.go:87" ]
+        "command-line-arguments.exportCoverageGeoJSON" [ fillcolor="lightblue" label="exportCoverageGeoJSON" penwidth="0.5" tooltip="command-line-arguments.exportCoverageGeoJSON | defined in main.go:356\nat main.go:377: calling [encoding/json.MarshalIndent]\nat main.go:381: calling [os.WriteFile]" ]
+        "command-line-arguments.distance3D" [ label="distance3D" penwidth="0.5" tooltip="command-line-arguments.distance3D | defined in main.go:235\nat main.go:241: calling [math.Sqrt]\nat main.go:236: calling [command-line-arguments.llhToEcef]\nat main.go:237: calling [command-line-arguments.llhToEcef]" fillcolor="lightblue" ]
+        "command-line-arguments.ecefToEnu" [ fillcolor="lightblue" label="ecefToEnu" penwidth="0.5" tooltip="command-line-arguments.ecefToEnu | defined in main.go:101\nat main.go:106: calling [math.Cos]\nat main.go:108: calling [math.Cos]\nat main.go:105: calling [math.Sin]\nat main.go:107: calling [math.Sin]\nat main.go:102: calling [command-line-arguments.deg2rad]\nat main.go:103: calling [command-line-arguments.deg2rad]" ]
+        "command-line-arguments.horizonDistanceSurface" [ fillcolor="lightblue" label="horizonDistanceSurface" penwidth="0.5" tooltip="command-line-arguments.horizonDistanceSurface | defined in main.go:261\nat main.go:264: calling [math.Sqrt]\nat main.go:264: calling [math.Sqrt]" ]
+        "command-line-arguments.haversineDistance" [ fillcolor="lightblue" label="haversineDistance" penwidth="0.5" tooltip="command-line-arguments.haversineDistance | defined in main.go:117\nat main.go:123: calling [math.Atan2]\nat main.go:128: calling [math.Atan2]\nat main.go:122: calling [math.Cos]\nat main.go:122: calling [math.Cos]\nat main.go:126: calling [math.Cos]\nat main.go:127: calling [math.Cos]\nat main.go:127: calling [math.Cos]\nat main.go:127: calling [math.Cos]\nat main.go:118: calling [command-line-arguments.deg2rad]\nat main.go:119: calling [command-line-arguments.deg2rad]\nat main.go:120: calling [command-line-arguments.deg2rad]\nat main.go:121: calling [command-line-arguments.deg2rad]\nat main.go:123: calling [math.Sqrt]\nat main.go:123: calling [math.Sqrt]\nat main.go:129: calling [command-line-arguments.rad2deg]\nat main.go:129: calling [math.Mod]\nat main.go:122: calling [math.Sin]\nat main.go:122: calling [math.Sin]\nat main.go:122: calling [math.Sin]\nat main.go:122: calling [math.Sin]\nat main.go:126: calling [math.Sin]\nat main.go:127: calling [math.Sin]\nat main.go:127: calling [math.Sin]" ]
+        "command-line-arguments.radarEquationPr" [ fillcolor="lightblue" label="radarEquationPr" penwidth="0.5" tooltip="command-line-arguments.radarEquationPr | defined in main.go:283\nat main.go:286: calling [math.Pow]\nat main.go:286: calling [math.Pow]" ]
+        "command-line-arguments.computeMaxRangeForAzimuth" [ fillcolor="lightblue" label="computeMaxRangeForAzimuth" penwidth="0.5" tooltip="command-line-arguments.computeMaxRangeForAzimuth | defined in main.go:299\nat main.go:306: calling [command-line-arguments.elevationAngleDeg]\nat main.go:304: calling [command-line-arguments.destinationPoint]\nat main.go:308: calling [command-line-arguments.horizonDistanceSurface]\nat main.go:323: calling [command-line-arguments.noisePower]\nat main.go:321: calling [command-line-arguments.radarEquationPr]\nat main.go:316: calling [command-line-arguments.simpleAtmosphericAttenuationDBPerKm]\nat main.go:314: calling [command-line-arguments.distance3D]\nat main.go:318: calling [math.Pow]" ]
+        "command-line-arguments.elevationAngleDeg" [ fillcolor="lightblue" label="elevationAngleDeg" penwidth="0.5" tooltip="command-line-arguments.elevationAngleDeg | defined in main.go:245\nat main.go:253: calling [math.Atan2]\nat main.go:251: calling [command-line-arguments.ecefToEnu]\nat main.go:254: calling [command-line-arguments.rad2deg]\nat main.go:246: calling [command-line-arguments.llhToEcef]\nat main.go:247: calling [command-line-arguments.llhToEcef]\nat main.go:252: calling [math.Sqrt]" ]
+        "command-line-arguments.noisePower" [ label="noisePower" penwidth="0.5" tooltip="command-line-arguments.noisePower | defined in main.go:291" fillcolor="lightblue" ]
+        "command-line-arguments.vincentyInverse" [ tooltip="command-line-arguments.vincentyInverse | defined in main.go:147\nat main.go:151: calling [math.Tan]\nat main.go:152: calling [math.Tan]\nat main.go:161: calling [math.Abs]\nat main.go:192: calling [command-line-arguments.rad2deg]\nat main.go:192: calling [math.Mod]\nat main.go:192: calling [math.Atan2]\nat main.go:169: calling [math.Atan2]\nat main.go:164: calling [math.Pow]\nat main.go:164: calling [math.Pow]\nat main.go:151: calling [math.Atan]\nat main.go:152: calling [math.Atan]\nat main.go:153: calling [math.Sin]\nat main.go:154: calling [math.Sin]\nat main.go:162: calling [math.Sin]\nat main.go:190: calling [math.Sin]\nat main.go:164: calling [math.Sqrt]\nat main.go:148: calling [command-line-arguments.deg2rad]\nat main.go:149: calling [command-line-arguments.deg2rad]\nat main.go:150: calling [command-line-arguments.deg2rad]\nat main.go:153: calling [math.Cos]\nat main.go:154: calling [math.Cos]\nat main.go:163: calling [math.Cos]\nat main.go:191: calling [math.Cos]" fillcolor="lightblue" label="vincentyInverse" penwidth="0.5" ]
+        "command-line-arguments.main" [ label="main" penwidth="0.5" tooltip="command-line-arguments.main | defined in main.go:385\nat main.go:411: calling [command-line-arguments.exportCoverageGeoJSON]\nat main.go:413: calling [fmt.Println]\nat main.go:415: calling [fmt.Println]\nat main.go:393: calling [math.Pow]\nat main.go:409: calling [command-line-arguments.buildCoveragePolygon]" fillcolor="lightblue" ]
+        "command-line-arguments.buildCoveragePolygon" [ fillcolor="lightblue" label="buildCoveragePolygon" penwidth="0.5" tooltip="command-line-arguments.buildCoveragePolygon | defined in main.go:337\nat main.go:345: calling [command-line-arguments.destinationPoint]\nat main.go:340: calling [command-line-arguments.computeMaxRangeForAzimuth]" ]
+        "command-line-arguments.destinationPointVincenty" [ label="destinationPointVincenty" penwidth="0.5" tooltip="command-line-arguments.destinationPointVincenty | defined in main.go:197\nat main.go:206: calling [math.Tan]\nat main.go:209: calling [math.Tan]\nat main.go:209: calling [math.Atan2]\nat main.go:225: calling [math.Atan2]\nat main.go:226: calling [math.Atan2]\nat main.go:219: calling [math.Abs]\nat main.go:207: calling [math.Cos]\nat main.go:208: calling [math.Cos]\nat main.go:220: calling [math.Cos]\nat main.go:221: calling [math.Cos]\nat main.go:225: calling [math.Cos]\nat main.go:225: calling [math.Cos]\nat main.go:226: calling [math.Cos]\nat main.go:228: calling [math.Cos]\nat main.go:225: calling [math.Sqrt]\nat main.go:207: calling [math.Sin]\nat main.go:208: calling [math.Sin]\nat main.go:221: calling [math.Sin]\nat main.go:221: calling [math.Sin]\nat main.go:221: calling [math.Sin]\nat main.go:225: calling [math.Sin]\nat main.go:225: calling [math.Sin]\nat main.go:226: calling [math.Sin]\nat main.go:226: calling [math.Sin]\nat main.go:228: calling [math.Sin]\nat main.go:225: calling [math.Pow]\nat main.go:229: calling [command-line-arguments.rad2deg]\nat main.go:230: calling [command-line-arguments.rad2deg]\nat main.go:206: calling [math.Atan]\nat main.go:199: calling [command-line-arguments.deg2rad]\nat main.go:204: calling [command-line-arguments.deg2rad]\nat main.go:205: calling [command-line-arguments.deg2rad]" fillcolor="lightblue" ]
+        
+        subgraph "cluster_encoding/json" {
+        penwidth="0.8";
+fontsize="16";
+style="filled";
+rank="sink";
+fillcolor="#E0FFE1";
+fontname="Tahoma bold";
+label="encoding/json";
+URL="/?f=encoding/json";
+tooltip="package: encoding/json";
+        
+        "encoding/json.MarshalIndent" [ label="MarshalIndent" penwidth="1.5" tooltip="encoding/json.MarshalIndent | defined in encode.go:221" fillcolor="#adedad" ]
+        
+    }
+
+        subgraph "cluster_fmt" {
+        tooltip="package: fmt";
+fontsize="16";
+style="filled";
+penwidth="0.8";
+fillcolor="#E0FFE1";
+fontname="Tahoma bold";
+rank="sink";
+label="fmt";
+URL="/?f=fmt";
+        
+        "fmt.Println" [ fillcolor="#adedad" label="Println" penwidth="1.5" tooltip="fmt.Println | defined in print.go:313" ]
+        
+    }
+
+        subgraph "cluster_math" {
+        penwidth="0.8";
+fontsize="16";
+fontname="Tahoma bold";
+label="math";
+URL="/?f=math";
+tooltip="package: math";
+style="filled";
+fillcolor="#E0FFE1";
+rank="sink";
+        
+        "math.Pow" [ fillcolor="#adedad" label="Pow" penwidth="1.5" tooltip="math.Pow | defined in pow.go:48" ]
+        "math.Max" [ fillcolor="#adedad" label="Max" penwidth="1.5" tooltip="math.Max | defined in dim.go:40" ]
+        "math.Min" [ tooltip="math.Min | defined in dim.go:76" fillcolor="#adedad" label="Min" penwidth="1.5" ]
+        "math.Sin" [ penwidth="1.5" tooltip="math.Sin | defined in sin.go:185" fillcolor="#adedad" label="Sin" ]
+        "math.Sqrt" [ fillcolor="#adedad" label="Sqrt" penwidth="1.5" tooltip="math.Sqrt | defined in sqrt.go:93" ]
+        "math.Cos" [ penwidth="1.5" tooltip="math.Cos | defined in sin.go:118" fillcolor="#adedad" label="Cos" ]
+        "math.Asin" [ fillcolor="#adedad" label="Asin" penwidth="1.5" tooltip="math.Asin | defined in asin.go:20" ]
+        "math.Atan2" [ fillcolor="#adedad" label="Atan2" penwidth="1.5" tooltip="math.Atan2 | defined in atan2.go:30" ]
+        "math.Mod" [ fillcolor="#adedad" label="Mod" penwidth="1.5" tooltip="math.Mod | defined in mod.go:22" ]
+        "math.Tan" [ label="Tan" penwidth="1.5" tooltip="math.Tan | defined in tan.go:83" fillcolor="#adedad" ]
+        "math.Atan" [ fillcolor="#adedad" label="Atan" penwidth="1.5" tooltip="math.Atan | defined in atan.go:96" ]
+        "math.Abs" [ fillcolor="#adedad" label="Abs" penwidth="1.5" tooltip="math.Abs | defined in abs.go:13" ]
+        
+    }
+
+        subgraph "cluster_os" {
+        penwidth="0.8";
+style="filled";
+fontname="Tahoma bold";
+label="os";
+URL="/?f=os";
+fontsize="16";
+fillcolor="#E0FFE1";
+rank="sink";
+tooltip="package: os";
+        
+        "os.WriteFile" [ fillcolor="#adedad" label="WriteFile" penwidth="1.5" tooltip="os.WriteFile | defined in file.go:935" ]
+        
+    }
+
+    }
+
+    "command-line-arguments.vincentyInverse" -> "math.Tan" [ color="saddlebrown" tooltip="at main.go:151: calling [math.Tan]\nat main.go:152: calling [math.Tan]" ]
+    "command-line-arguments.horizonDistanceSurface" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:264: calling [math.Sqrt]\nat main.go:264: calling [math.Sqrt]" ]
+    "command-line-arguments.haversineDistance" -> "math.Atan2" [ color="saddlebrown" tooltip="at main.go:123: calling [math.Atan2]\nat main.go:128: calling [math.Atan2]" ]
+    "command-line-arguments.radarEquationPr" -> "math.Pow" [ color="saddlebrown" tooltip="at main.go:286: calling [math.Pow]\nat main.go:286: calling [math.Pow]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.elevationAngleDeg" [ tooltip="at main.go:306: calling [command-line-arguments.elevationAngleDeg]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Tan" [ color="saddlebrown" tooltip="at main.go:206: calling [math.Tan]\nat main.go:209: calling [math.Tan]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Atan2" [ color="saddlebrown" tooltip="at main.go:209: calling [math.Atan2]\nat main.go:225: calling [math.Atan2]\nat main.go:226: calling [math.Atan2]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Abs" [ color="saddlebrown" tooltip="at main.go:219: calling [math.Abs]" ]
+    "command-line-arguments.simpleAtmosphericAttenuationDBPerKm" -> "math.Min" [ color="saddlebrown" tooltip="at main.go:277: calling [math.Min]" ]
+    "command-line-arguments.buildCoveragePolygon" -> "command-line-arguments.destinationPoint" [ tooltip="at main.go:345: calling [command-line-arguments.destinationPoint]" ]
+    "command-line-arguments.elevationAngleDeg" -> "math.Atan2" [ color="saddlebrown" tooltip="at main.go:253: calling [math.Atan2]" ]
+    "command-line-arguments.main" -> "command-line-arguments.exportCoverageGeoJSON" [ tooltip="at main.go:411: calling [command-line-arguments.exportCoverageGeoJSON]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.destinationPoint" [ tooltip="at main.go:304: calling [command-line-arguments.destinationPoint]" ]
+    "command-line-arguments.simpleAtmosphericAttenuationDBPerKm" -> "math.Pow" [ color="saddlebrown" tooltip="at main.go:275: calling [math.Pow]" ]
+    "command-line-arguments.destinationPoint" -> "command-line-arguments.deg2rad" [ tooltip="at main.go:135: calling [command-line-arguments.deg2rad]\nat main.go:136: calling [command-line-arguments.deg2rad]\nat main.go:137: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.elevationAngleDeg" -> "command-line-arguments.ecefToEnu" [ tooltip="at main.go:251: calling [command-line-arguments.ecefToEnu]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Abs" [ color="saddlebrown" tooltip="at main.go:161: calling [math.Abs]" ]
+    "command-line-arguments.vincentyInverse" -> "command-line-arguments.rad2deg" [ tooltip="at main.go:192: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Mod" [ color="saddlebrown" tooltip="at main.go:192: calling [math.Mod]" ]
+    "command-line-arguments.main" -> "fmt.Println" [ color="saddlebrown" tooltip="at main.go:413: calling [fmt.Println]\nat main.go:415: calling [fmt.Println]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Atan2" [ color="saddlebrown" tooltip="at main.go:192: calling [math.Atan2]\nat main.go:169: calling [math.Atan2]" ]
+    "command-line-arguments.haversineDistance" -> "math.Cos" [ color="saddlebrown" tooltip="at main.go:122: calling [math.Cos]\nat main.go:122: calling [math.Cos]\nat main.go:126: calling [math.Cos]\nat main.go:127: calling [math.Cos]\nat main.go:127: calling [math.Cos]\nat main.go:127: calling [math.Cos]" ]
+    "command-line-arguments.llhToEcef" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:93: calling [math.Sqrt]" ]
+    "command-line-arguments.destinationPoint" -> "command-line-arguments.rad2deg" [ tooltip="at main.go:141: calling [command-line-arguments.rad2deg]\nat main.go:142: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.haversineDistance" -> "command-line-arguments.deg2rad" [ tooltip="at main.go:118: calling [command-line-arguments.deg2rad]\nat main.go:119: calling [command-line-arguments.deg2rad]\nat main.go:120: calling [command-line-arguments.deg2rad]\nat main.go:121: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Cos" [ color="saddlebrown" tooltip="at main.go:207: calling [math.Cos]\nat main.go:208: calling [math.Cos]\nat main.go:220: calling [math.Cos]\nat main.go:221: calling [math.Cos]\nat main.go:225: calling [math.Cos]\nat main.go:225: calling [math.Cos]\nat main.go:226: calling [math.Cos]\nat main.go:228: calling [math.Cos]" ]
+    "command-line-arguments.haversineDistance" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:123: calling [math.Sqrt]\nat main.go:123: calling [math.Sqrt]" ]
+    "command-line-arguments.elevationAngleDeg" -> "command-line-arguments.rad2deg" [ tooltip="at main.go:254: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.horizonDistanceSurface" [ tooltip="at main.go:308: calling [command-line-arguments.horizonDistanceSurface]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Pow" [ color="saddlebrown" tooltip="at main.go:164: calling [math.Pow]\nat main.go:164: calling [math.Pow]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:225: calling [math.Sqrt]" ]
+    "command-line-arguments.haversineDistance" -> "command-line-arguments.rad2deg" [ tooltip="at main.go:129: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.haversineDistance" -> "math.Mod" [ color="saddlebrown" tooltip="at main.go:129: calling [math.Mod]" ]
+    "command-line-arguments.buildCoveragePolygon" -> "command-line-arguments.computeMaxRangeForAzimuth" [ tooltip="at main.go:340: calling [command-line-arguments.computeMaxRangeForAzimuth]" ]
+    "command-line-arguments.destinationPoint" -> "math.Sin" [ tooltip="at main.go:139: calling [math.Sin]\nat main.go:139: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:140: calling [math.Sin]\nat main.go:140: calling [math.Sin]" color="saddlebrown" ]
+    "command-line-arguments.vincentyInverse" -> "math.Atan" [ color="saddlebrown" tooltip="at main.go:151: calling [math.Atan]\nat main.go:152: calling [math.Atan]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Sin" [ color="saddlebrown" tooltip="at main.go:153: calling [math.Sin]\nat main.go:154: calling [math.Sin]\nat main.go:162: calling [math.Sin]\nat main.go:190: calling [math.Sin]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Sin" [ tooltip="at main.go:207: calling [math.Sin]\nat main.go:208: calling [math.Sin]\nat main.go:221: calling [math.Sin]\nat main.go:221: calling [math.Sin]\nat main.go:221: calling [math.Sin]\nat main.go:225: calling [math.Sin]\nat main.go:225: calling [math.Sin]\nat main.go:226: calling [math.Sin]\nat main.go:226: calling [math.Sin]\nat main.go:228: calling [math.Sin]" color="saddlebrown" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Pow" [ color="saddlebrown" tooltip="at main.go:225: calling [math.Pow]" ]
+    "command-line-arguments.destinationPoint" -> "math.Cos" [ color="saddlebrown" tooltip="at main.go:139: calling [math.Cos]\nat main.go:139: calling [math.Cos]\nat main.go:139: calling [math.Cos]\nat main.go:140: calling [math.Cos]\nat main.go:140: calling [math.Cos]" ]
+    "command-line-arguments.destinationPoint" -> "math.Asin" [ color="saddlebrown" tooltip="at main.go:139: calling [math.Asin]" ]
+    "command-line-arguments.destinationPoint" -> "math.Atan2" [ color="saddlebrown" tooltip="at main.go:140: calling [math.Atan2]" ]
+    "command-line-arguments.haversineDistance" -> "math.Sin" [ color="saddlebrown" tooltip="at main.go:122: calling [math.Sin]\nat main.go:122: calling [math.Sin]\nat main.go:122: calling [math.Sin]\nat main.go:122: calling [math.Sin]\nat main.go:126: calling [math.Sin]\nat main.go:127: calling [math.Sin]\nat main.go:127: calling [math.Sin]" ]
+    "command-line-arguments.main" -> "math.Pow" [ tooltip="at main.go:393: calling [math.Pow]" color="saddlebrown" ]
+    "command-line-arguments.destinationPointVincenty" -> "command-line-arguments.rad2deg" [ tooltip="at main.go:229: calling [command-line-arguments.rad2deg]\nat main.go:230: calling [command-line-arguments.rad2deg]" ]
+    "command-line-arguments.simpleAtmosphericAttenuationDBPerKm" -> "math.Max" [ tooltip="at main.go:277: calling [math.Max]" color="saddlebrown" ]
+    "command-line-arguments.llhToEcef" -> "math.Sin" [ color="saddlebrown" tooltip="at main.go:93: calling [math.Sin]\nat main.go:93: calling [math.Sin]\nat main.go:95: calling [math.Sin]\nat main.go:96: calling [math.Sin]" ]
+    "command-line-arguments.exportCoverageGeoJSON" -> "encoding/json.MarshalIndent" [ color="saddlebrown" tooltip="at main.go:377: calling [encoding/json.MarshalIndent]" ]
+    "command-line-arguments.distance3D" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:241: calling [math.Sqrt]" ]
+    "command-line-arguments.ecefToEnu" -> "math.Cos" [ color="saddlebrown" tooltip="at main.go:106: calling [math.Cos]\nat main.go:108: calling [math.Cos]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.noisePower" [ tooltip="at main.go:323: calling [command-line-arguments.noisePower]" ]
+    "command-line-arguments.destinationPointVincenty" -> "math.Atan" [ color="saddlebrown" tooltip="at main.go:206: calling [math.Atan]" ]
+    "command-line-arguments.llhToEcef" -> "command-line-arguments.deg2rad" [ tooltip="at main.go:91: calling [command-line-arguments.deg2rad]\nat main.go:92: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.radarEquationPr" [ tooltip="at main.go:321: calling [command-line-arguments.radarEquationPr]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:164: calling [math.Sqrt]" ]
+    "command-line-arguments.llhToEcef" -> "math.Cos" [ color="saddlebrown" tooltip="at main.go:94: calling [math.Cos]\nat main.go:94: calling [math.Cos]\nat main.go:95: calling [math.Cos]" ]
+    "command-line-arguments.exportCoverageGeoJSON" -> "os.WriteFile" [ color="saddlebrown" tooltip="at main.go:381: calling [os.WriteFile]" ]
+    "command-line-arguments.distance3D" -> "command-line-arguments.llhToEcef" [ tooltip="at main.go:236: calling [command-line-arguments.llhToEcef]\nat main.go:237: calling [command-line-arguments.llhToEcef]" ]
+    "command-line-arguments.ecefToEnu" -> "math.Sin" [ color="saddlebrown" tooltip="at main.go:105: calling [math.Sin]\nat main.go:107: calling [math.Sin]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.simpleAtmosphericAttenuationDBPerKm" [ tooltip="at main.go:316: calling [command-line-arguments.simpleAtmosphericAttenuationDBPerKm]" ]
+    "command-line-arguments.vincentyInverse" -> "command-line-arguments.deg2rad" [ tooltip="at main.go:148: calling [command-line-arguments.deg2rad]\nat main.go:149: calling [command-line-arguments.deg2rad]\nat main.go:150: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.vincentyInverse" -> "math.Cos" [ color="saddlebrown" tooltip="at main.go:153: calling [math.Cos]\nat main.go:154: calling [math.Cos]\nat main.go:163: calling [math.Cos]\nat main.go:191: calling [math.Cos]" ]
+    "command-line-arguments.ecefToEnu" -> "command-line-arguments.deg2rad" [ tooltip="at main.go:102: calling [command-line-arguments.deg2rad]\nat main.go:103: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "command-line-arguments.distance3D" [ tooltip="at main.go:314: calling [command-line-arguments.distance3D]" ]
+    "command-line-arguments.computeMaxRangeForAzimuth" -> "math.Pow" [ color="saddlebrown" tooltip="at main.go:318: calling [math.Pow]" ]
+    "command-line-arguments.main" -> "command-line-arguments.buildCoveragePolygon" [ tooltip="at main.go:409: calling [command-line-arguments.buildCoveragePolygon]" ]
+    "command-line-arguments.destinationPointVincenty" -> "command-line-arguments.deg2rad" [ tooltip="at main.go:199: calling [command-line-arguments.deg2rad]\nat main.go:204: calling [command-line-arguments.deg2rad]\nat main.go:205: calling [command-line-arguments.deg2rad]" ]
+    "command-line-arguments.elevationAngleDeg" -> "command-line-arguments.llhToEcef" [ tooltip="at main.go:246: calling [command-line-arguments.llhToEcef]\nat main.go:247: calling [command-line-arguments.llhToEcef]" ]
+    "command-line-arguments.elevationAngleDeg" -> "math.Sqrt" [ color="saddlebrown" tooltip="at main.go:252: calling [math.Sqrt]" ]
+}

@@ -268,5 +268,5 @@ Formati consigliati:
 
 ## Riferimenti motori LLM
 
-Migliore: https://claude.ai/chat/40ebf1ba-c4e5-402f-a221-7865bbc5598d
-Medio, ma sul codice attuale: 
+- Migliore: https://claude.ai/chat/40ebf1ba-c4e5-402f-a221-7865bbc5598d
+- Medio, ma sul codice attuale: https://chatgpt.com/share/6935e604-fe78-800f-b1eb-11d7307baacf

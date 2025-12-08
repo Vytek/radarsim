@@ -427,7 +427,8 @@ func generateTacticalMap(radars []RadarStation, targets []AircraftTarget, center
 // ========== FUNZIONE PRINCIPALE ==========
 
 func main() {
-	fmt.Println("=== SISTEMA DI SIMULAZIONE RADAR ===\n")
+	fmt.Println("=== SISTEMA DI SIMULAZIONE RADAR ===")
+	fmt.Println()
 
 	// Condizioni atmosferiche
 	conditions := AtmosphericConditions{
